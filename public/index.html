@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Raihan KataUHA Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="side-nav" aria-label="Navigasi section dashboard">
+      <div class="side-brand">
+        <span>Raihan</span>
+        <strong>KataUHA</strong>
+      </div>
+      <nav>
+        <a class="active" href="#akumulasi" data-section="akumulasi">Akumulasi</a>
+        <a href="#overview" data-section="overview">Overview</a>
+        <a href="#kpi" data-section="kpi">KPI Utama</a>
+        <a href="#progress" data-section="progress">Progress</a>
+        <a href="#monitoring" data-section="monitoring">Monitoring</a>
+        <a href="#funnel" data-section="funnel">Funnel</a>
+        <a href="#compare" data-section="compare">Compare</a>
+        <a href="#delta" data-section="delta">Delta Chart</a>
+        <a href="#audit" data-section="audit">Audit</a>
+      </nav>
+    </aside>
+
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">Internal Report</span>
+        <h1>Raihan KataUHA Dashboard</h1>
+        <p>Dashboard web v1 berbasis JSON existing yang sudah divalidasi dengan spreadsheet acuan.</p>
+      </div>
+    </header>
+
+    <section class="card section-anchor cumulative-card" id="akumulasi">
+      <div class="section-title cumulative-title">
+        <div>
+          <span class="eyebrow cumulative-eyebrow">Custom Summary</span>
+          <h3>Akumulasi Total Custom</h3>
+          <p>Pilih episode yang ingin dijumlahkan, atau gunakan semua episode.</p>
+        </div>
+        <div class="cumulative-actions">
+          <button type="button" id="selectAllEpisodes">Pilih Semua</button>
+          <button type="button" id="clearEpisodes">Reset</button>
+        </div>
+      </div>
+      <div class="episode-chip-grid" id="cumulativeEpisodeChips" aria-label="Pilih episode untuk akumulasi"></div>
+      <div class="cumulative-status" id="cumulativeStatus">-</div>
+      <div class="cumulative-grid" id="cumulativeSummary"></div>
+    </section>
+
+    <section class="hero card" id="overview">
+      <div>
+        <p class="muted" id="episodeMeta">Loading...</p>
+        <h2 id="episodeTitle">KataUHA</h2>
+        <div class="meta-grid">
+          <span id="eventStart">Hari H: -</span>
+          <span id="promoStart">Start promosi: -</span>
+          <span id="promoDays">Hari promosi: -</span>
+          <span id="lastUpdated">JSON update: -</span>
+          <a id="sheetLink" href="#" target="_blank" rel="noreferrer">Buka Spreadsheet</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="episode-picker episode-picker-card">
+          <label for="episodeSelect">Pilih Episode</label>
+          <select id="episodeSelect"></select>
+        </div>
+        <div class="score-card">
+          <span>ROAS Ads Funnel</span>
+          <strong id="heroRoas">0.00x</strong>
+          <small>Revenue funnel ads / Spend + PPN</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpi-grid section-anchor" id="kpi"></section>
+
+    <section class="grid-2">
+      <article class="card section-anchor" id="progress">
+        <div class="section-title">
+          <div>
+            <h3>Progress Target</h3>
+            <p>Ringkasan pencapaian terhadap target episode.</p>
+          </div>
+        </div>
+        <div id="progressList" class="progress-list"></div>
+      </article>
+
+      <article class="card section-anchor" id="monitoring">
+        <div class="section-title">
+          <div>
+            <h3>Monitoring Revenue</h3>
+            <p>Trend revenue harian dari JSON existing.</p>
+          </div>
+        </div>
+        <div id="chart" class="chart"></div>
+      </article>
+    </section>
+
+    <section class="card section-anchor" id="funnel">
+      <div class="section-title table-toolbar">
+        <div>
+          <h3>Funnel Performance</h3>
+          <p>Breakdown product/link per episode. Data source: JSON dashboard existing.</p>
+        </div>
+        <div class="controls">
+          <input id="search" placeholder="Cari product/suffix..." />
+          <select id="sortBy">
+            <option value="revenue">Revenue tertinggi</option>
+            <option value="paid">Paid tertinggi</option>
+            <option value="checkout">Checkout tertinggi</option>
+            <option value="avgInfaq">Avg infaq tertinggi</option>
+            <option value="checkoutToPaidPct">Checkout -> Paid tertinggi</option>
+            <option value="linkClicks">Link clicks tertinggi</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Funnel</th>
+              <th>Revenue</th>
+              <th>Paid</th>
+              <th>Checkout</th>
+              <th>Avg Infaq</th>
+              <th>Checkout -> Paid</th>
+              <th>Link Clicks</th>
+              <th>Source</th>
+              <th>Rekomendasi</th>
+            </tr>
+          </thead>
+          <tbody id="funnelBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card section-anchor" id="compare">
+      <div class="section-title">
+        <div>
+          <h3>Compare Episodes</h3>
+          <p>Perbandingan cepat episode 38-40.</p>
+        </div>
+      </div>
+      <div class="table-wrap compact">
+        <table>
+          <thead>
+            <tr>
+              <th>Episode</th>
+              <th>Revenue</th>
+              <th>Paid</th>
+              <th>Checkout</th>
+              <th>Avg Infaq</th>
+              <th>Ads Spend + PPN</th>
+              <th>ROAS Ads Funnel</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card section-anchor" id="delta">
+      <div class="section-title table-toolbar">
+        <div>
+          <h3>Episode Delta Comparison</h3>
+          <p>Bandingkan performa satu episode dengan episode lain untuk bahan evaluasi dan presentasi.</p>
+        </div>
+        <div class="controls comparison-controls">
+          <label>
+            Base
+            <select id="baseEpisode"></select>
+          </label>
+          <label>
+            Compare To
+            <select id="compareEpisode"></select>
+          </label>
+        </div>
+      </div>
+      <div class="delta-summary" id="deltaSummary"></div>
+      <div class="delta-chart" id="deltaChart"></div>
+      <div class="delta-insight" id="deltaInsight"></div>
+    </section>
+
+    <section class="audit card section-anchor" id="audit">
+      <h3>Data Audit</h3>
+      <p id="auditText">-</p>
+    </section>
+  </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

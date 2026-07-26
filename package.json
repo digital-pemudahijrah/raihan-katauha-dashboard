@@ -1,0 +1,17 @@
+{
+  "name": "raihan-katauha-dashboard-v1",
+  "version": "1.0.0",
+  "description": "Local web dashboard for Raihan KataUHA episode reports using existing validated JSON outputs.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node api/server.mjs",
+    "sync:data": "python scripts/sync-static-data.py",
+    "build": "npm run sync:data",
+    "verify": "node scripts/verify.mjs",
+    "validate:sheets": "node scripts/validate-sheets.mjs"
+  },
+  "keywords": ["katauha", "dashboard", "reports"],
+  "author": "Hermes Agent",
+  "license": "UNLICENSED"
+}

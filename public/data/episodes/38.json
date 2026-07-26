@@ -1,0 +1,674 @@
+{
+  "episode": 38,
+  "label": "KataUHA 38",
+  "shortLabel": "KU38",
+  "title": "Ya Allah, Ini Arahnya Kemana Ya?",
+  "eventStart": "Tuesday, 09 June 2026",
+  "spreadsheetId": "1-Zq2x7eB-ntcgIOCCD-AK0eGK-NoPAfeQxqic2iA4wM",
+  "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1-Zq2x7eB-ntcgIOCCD-AK0eGK-NoPAfeQxqic2iA4wM/edit",
+  "jsonModifiedAt": "2026-07-26T18:32:18.633076Z",
+  "promoStart": "2026-05-05",
+  "promoDays": 84,
+  "source": "Existing KataUHA dashboard JSON",
+  "dataQuality": "validated-json",
+  "dataWarnings": [],
+  "kpiTargets": {},
+  "kpi": {
+    "revenue": 100503533.0,
+    "paid": 5560,
+    "checkout": 7275,
+    "unfinished": 1715,
+    "avgInfaq": 18076.0,
+    "checkoutToPaidPct": 76.43,
+    "trackedClicks": 0,
+    "trackedUniqueClicks": 0,
+    "adsFunnelRevenue": 48909549.0,
+    "adsSpend": 23849808.0,
+    "adsPpn": 2623478.88,
+    "adsSpendWithPpn": 26473286.88,
+    "adsSpendToRevenuePct": 26.34,
+    "roasAdsFunnelWithPpn": 1.85,
+    "metaRevenue": 43422539.0,
+    "metaRoas": 1.82
+  },
+  "aggregate": {
+    "revenue": 100503533,
+    "paid": 5560,
+    "checkout": 7275,
+    "unfinished": 1715
+  },
+  "metaSummary": {
+    "spend": 23849808.0,
+    "ppn": 2623478.88,
+    "spendWithPpn": 26473286.88,
+    "metaRevenue": 43422539.0,
+    "metaRoas": 1.8206661873336674,
+    "adsFunnelRevenue": 48909549,
+    "roasAdsFunnelWithPpn": 1.8475057223419475,
+    "campaignCount": 26
+  },
+  "funnelRows": [
+    {
+      "suffix": "main",
+      "productName": "#KataUHA 38",
+      "revenue": 21563182.0,
+      "paid": 1227,
+      "checkout": 1512,
+      "unfinished": 285,
+      "avgInfaq": 17573.91,
+      "checkoutToPaidPct": 81.15,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "cwa",
+      "productName": "#KataUHA 38-cwa",
+      "revenue": 17000858.0,
+      "paid": 1050,
+      "checkout": 1539,
+      "unfinished": 489,
+      "avgInfaq": 16191.29,
+      "checkoutToPaidPct": 68.23,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads1",
+      "productName": "#KataUHA 38 - tst ads1",
+      "revenue": 14921901.0,
+      "paid": 691,
+      "checkout": 889,
+      "unfinished": 198,
+      "avgInfaq": 21594.65,
+      "checkoutToPaidPct": 77.73,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads",
+      "productName": "#KataUHA 38-ads",
+      "revenue": 13695013.0,
+      "paid": 789,
+      "checkout": 1030,
+      "unfinished": 241,
+      "avgInfaq": 17357.43,
+      "checkoutToPaidPct": 76.6,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tele",
+      "productName": "#KataUHA 38-tele",
+      "revenue": 10334504.0,
+      "paid": 588,
+      "checkout": 723,
+      "unfinished": 135,
+      "avgInfaq": 17575.69,
+      "checkoutToPaidPct": 81.33,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads2",
+      "productName": "#KataUHA 38 - tst ads2",
+      "revenue": 5311767.0,
+      "paid": 274,
+      "checkout": 344,
+      "unfinished": 70,
+      "avgInfaq": 19386.01,
+      "checkoutToPaidPct": 79.65,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads3",
+      "productName": "#KataUHA 38-ads3",
+      "revenue": 5159643.0,
+      "paid": 244,
+      "checkout": 336,
+      "unfinished": 92,
+      "avgInfaq": 21146.08,
+      "checkoutToPaidPct": 72.62,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads5",
+      "productName": "#KataUHA 38-ads5",
+      "revenue": 2015497.0,
+      "paid": 107,
+      "checkout": 142,
+      "unfinished": 35,
+      "avgInfaq": 18836.42,
+      "checkoutToPaidPct": 75.35,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads9",
+      "productName": "#KataUHA 38 - tst ads9",
+      "revenue": 1785941.0,
+      "paid": 105,
+      "checkout": 134,
+      "unfinished": 29,
+      "avgInfaq": 17008.96,
+      "checkoutToPaidPct": 78.36,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads11",
+      "productName": "#KataUHA 38-ads11",
+      "revenue": 1671909.0,
+      "paid": 79,
+      "checkout": 114,
+      "unfinished": 35,
+      "avgInfaq": 21163.41,
+      "checkoutToPaidPct": 69.3,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads3",
+      "productName": "#KataUHA 38 - tst ads3",
+      "revenue": 1355501.0,
+      "paid": 81,
+      "checkout": 100,
+      "unfinished": 19,
+      "avgInfaq": 16734.58,
+      "checkoutToPaidPct": 81.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ha",
+      "productName": "#KataUHA 38-ha",
+      "revenue": 1319907.0,
+      "paid": 71,
+      "checkout": 91,
+      "unfinished": 20,
+      "avgInfaq": 18590.24,
+      "checkoutToPaidPct": 78.02,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ph",
+      "productName": "#KataUHA 38-ph",
+      "revenue": 1157199.0,
+      "paid": 69,
+      "checkout": 80,
+      "unfinished": 11,
+      "avgInfaq": 16771.0,
+      "checkoutToPaidPct": 86.25,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads2",
+      "productName": "#KataUHA 38-ads2",
+      "revenue": 1142956.0,
+      "paid": 56,
+      "checkout": 58,
+      "unfinished": 2,
+      "avgInfaq": 20409.93,
+      "checkoutToPaidPct": 96.55,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads6",
+      "productName": "#KataUHA 38-ads6",
+      "revenue": 710621.0,
+      "paid": 42,
+      "checkout": 55,
+      "unfinished": 13,
+      "avgInfaq": 16919.55,
+      "checkoutToPaidPct": 76.36,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads6",
+      "productName": "#KataUHA 38 - tst ads6",
+      "revenue": 417007.0,
+      "paid": 27,
+      "checkout": 39,
+      "unfinished": 12,
+      "avgInfaq": 15444.7,
+      "checkoutToPaidPct": 69.23,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "web",
+      "productName": "#KataUHA 38 - web",
+      "revenue": 150405.0,
+      "paid": 10,
+      "checkout": 15,
+      "unfinished": 5,
+      "avgInfaq": 15040.5,
+      "checkoutToPaidPct": 66.67,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads7",
+      "productName": "#KataUHA 38 - tst ads7",
+      "revenue": 149222.0,
+      "paid": 9,
+      "checkout": 18,
+      "unfinished": 9,
+      "avgInfaq": 16580.22,
+      "checkoutToPaidPct": 50.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads8",
+      "productName": "#KataUHA 38 - tst ads8",
+      "revenue": 149119.0,
+      "paid": 10,
+      "checkout": 12,
+      "unfinished": 2,
+      "avgInfaq": 14911.9,
+      "checkoutToPaidPct": 83.33,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads5",
+      "productName": "#KataUHA 38 - tst ads5",
+      "revenue": 146846.0,
+      "paid": 7,
+      "checkout": 10,
+      "unfinished": 3,
+      "avgInfaq": 20978.0,
+      "checkoutToPaidPct": 70.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tads4",
+      "productName": "#KataUHA 38 - tst ads4",
+      "revenue": 130621.0,
+      "paid": 8,
+      "checkout": 10,
+      "unfinished": 2,
+      "avgInfaq": 16327.62,
+      "checkoutToPaidPct": 80.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads4",
+      "productName": "#KataUHA 38-ads4",
+      "revenue": 61663.0,
+      "paid": 4,
+      "checkout": 6,
+      "unfinished": 2,
+      "avgInfaq": 15415.75,
+      "checkoutToPaidPct": 66.67,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "qu",
+      "productName": "#KataUHA 38-qu",
+      "revenue": 52360.0,
+      "paid": 3,
+      "checkout": 5,
+      "unfinished": 2,
+      "avgInfaq": 17453.33,
+      "checkoutToPaidPct": 60.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads7",
+      "productName": "#KataUHA 38-ads7",
+      "revenue": 44807.0,
+      "paid": 3,
+      "checkout": 4,
+      "unfinished": 1,
+      "avgInfaq": 14935.67,
+      "checkoutToPaidPct": 75.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads8",
+      "productName": "#KataUHA 38-ads8",
+      "revenue": 29238.0,
+      "paid": 2,
+      "checkout": 2,
+      "unfinished": 0,
+      "avgInfaq": 14619.0,
+      "checkoutToPaidPct": 100.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "wa",
+      "productName": "#KataUHA 38-wa",
+      "revenue": 15569.0,
+      "paid": 3,
+      "checkout": 3,
+      "unfinished": 0,
+      "avgInfaq": 5189.67,
+      "checkoutToPaidPct": 100.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads9",
+      "productName": "#KataUHA 38-ads9",
+      "revenue": 10277.0,
+      "paid": 1,
+      "checkout": 4,
+      "unfinished": 3,
+      "avgInfaq": 10277.0,
+      "checkoutToPaidPct": 25.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ln",
+      "productName": "#KataUHA 38-ln",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "tt",
+      "productName": "#KataUHA 38-tt",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    },
+    {
+      "suffix": "ads10",
+      "productName": "#KataUHA 38-ads10",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 0,
+      "uniqueClicks": 0,
+      "clickSource": "",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Cek mapping/tracking link belum ada click"
+    }
+  ],
+  "dailyRevenue": [
+    {
+      "date": "2026-04-30",
+      "revenue": 674039.0
+    },
+    {
+      "date": "2026-05-01",
+      "revenue": 398928.0
+    },
+    {
+      "date": "2026-05-02",
+      "revenue": 273158.0
+    },
+    {
+      "date": "2026-05-03",
+      "revenue": 517884.0
+    },
+    {
+      "date": "2026-05-04",
+      "revenue": 1458348.0
+    },
+    {
+      "date": "2026-05-05",
+      "revenue": 1254326.0
+    },
+    {
+      "date": "2026-05-06",
+      "revenue": 1305138.0
+    },
+    {
+      "date": "2026-05-07",
+      "revenue": 2485335.0
+    },
+    {
+      "date": "2026-05-08",
+      "revenue": 867570.0
+    },
+    {
+      "date": "2026-05-09",
+      "revenue": 857143.0
+    },
+    {
+      "date": "2026-05-10",
+      "revenue": 1202207.0
+    },
+    {
+      "date": "2026-05-11",
+      "revenue": 1434233.0
+    },
+    {
+      "date": "2026-05-12",
+      "revenue": 931750.0
+    },
+    {
+      "date": "2026-05-13",
+      "revenue": 626546.0
+    },
+    {
+      "date": "2026-05-14",
+      "revenue": 858890.0
+    },
+    {
+      "date": "2026-05-15",
+      "revenue": 735771.0
+    },
+    {
+      "date": "2026-05-16",
+      "revenue": 1646518.0
+    },
+    {
+      "date": "2026-05-17",
+      "revenue": 1209842.0
+    },
+    {
+      "date": "2026-05-18",
+      "revenue": 1560911.0
+    },
+    {
+      "date": "2026-05-19",
+      "revenue": 5900390.0
+    },
+    {
+      "date": "2026-05-20",
+      "revenue": 3455347.0
+    },
+    {
+      "date": "2026-05-21",
+      "revenue": 1952126.0
+    },
+    {
+      "date": "2026-05-22",
+      "revenue": 5337140.0
+    },
+    {
+      "date": "2026-05-23",
+      "revenue": 923242.0
+    },
+    {
+      "date": "2026-05-24",
+      "revenue": 992202.0
+    },
+    {
+      "date": "2026-05-25",
+      "revenue": 1338661.0
+    },
+    {
+      "date": "2026-05-26",
+      "revenue": 1107997.0
+    },
+    {
+      "date": "2026-05-27",
+      "revenue": 1827980.0
+    },
+    {
+      "date": "2026-05-28",
+      "revenue": 963875.0
+    },
+    {
+      "date": "2026-05-29",
+      "revenue": 1280425.0
+    },
+    {
+      "date": "2026-05-30",
+      "revenue": 1055187.0
+    },
+    {
+      "date": "2026-05-31",
+      "revenue": 1591852.0
+    },
+    {
+      "date": "2026-06-01",
+      "revenue": 4833398.0
+    },
+    {
+      "date": "2026-06-02",
+      "revenue": 2428078.0
+    },
+    {
+      "date": "2026-06-03",
+      "revenue": 2257590.0
+    },
+    {
+      "date": "2026-06-04",
+      "revenue": 2609956.0
+    },
+    {
+      "date": "2026-06-05",
+      "revenue": 6337342.0
+    },
+    {
+      "date": "2026-06-06",
+      "revenue": 3387158.0
+    },
+    {
+      "date": "2026-06-07",
+      "revenue": 4936742.0
+    },
+    {
+      "date": "2026-06-08",
+      "revenue": 9396116.0
+    },
+    {
+      "date": "2026-06-09",
+      "revenue": 16292192.0
+    }
+  ],
+  "audit": {
+    "funnelCount": 30,
+    "funnelRevenueSum": 100503533.0,
+    "funnelPaidSum": 5560.0,
+    "funnelCheckoutSum": 7275.0
+  }
+}

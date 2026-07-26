@@ -1,0 +1,545 @@
+{
+  "episode": 34,
+  "label": "KataUHA 34",
+  "shortLabel": "KU34",
+  "title": "Manifesting: Karir, Cinta, Rezeki",
+  "eventStart": "2026-02-24",
+  "spreadsheetId": "",
+  "spreadsheetUrl": "",
+  "jsonModifiedAt": "2026-07-26T20:46:22.161287Z",
+  "promoStart": "2026-01-27",
+  "promoDays": 28,
+  "source": "Legacy normalized Raihan workbook",
+  "dataQuality": "legacy-normalized-partial",
+  "dataWarnings": [
+    "Monitoring revenue harian tersedia dari sheet legacy; angka dipakai untuk chart, tetapi format legacy tetap partial dibanding dashboard baru.",
+    "Unique clicks, product IDs, and live source URLs tidak tersedia di format legacy.",
+    "Meta/campaign breakdown tidak tersedia; memakai summary spend/conversion/ROAS dari sheet.",
+    "Total monitoring revenue harian (108550084) berbeda dari summary/funnel revenue (108115878); dashboard mempertahankan summary/funnel sebagai KPI utama.",
+    "Total link click detail funnel (76929) berbeda dari summary sheet (60832); KPI tracked clicks memakai summary sheet."
+  ],
+  "kpiTargets": {
+    "targetRevenue": 180000000,
+    "targetPaid": 15000,
+    "targetCheckout": 20000,
+    "targetAvgInfaq": 28000,
+    "targetCheckoutToPaidPct": 75.0
+  },
+  "kpi": {
+    "revenue": 108115878.0,
+    "paid": 6384,
+    "checkout": 7984,
+    "unfinished": 1600,
+    "avgInfaq": 16935.0,
+    "checkoutToPaidPct": 79.96,
+    "trackedClicks": 60832,
+    "trackedUniqueClicks": 0,
+    "adsFunnelRevenue": 62396845.0,
+    "adsSpend": 29522866.0,
+    "adsPpn": 3247515.26,
+    "adsSpendWithPpn": 32770381.26,
+    "adsSpendToRevenuePct": 30.31,
+    "roasAdsFunnelWithPpn": 1.9,
+    "metaRevenue": 62396845.0,
+    "metaRoas": 2.11
+  },
+  "aggregate": {
+    "revenue": 108115878,
+    "paid": 6384,
+    "checkout": 7984,
+    "unfinished": 1600
+  },
+  "metaSummary": {
+    "spend": 29522866.0,
+    "ppn": 3247515.26,
+    "spendWithPpn": 32770381.26,
+    "metaRevenue": 62396845.0,
+    "metaRoas": 2.113509068,
+    "adsFunnelRevenue": 62396845,
+    "roasAdsFunnelWithPpn": 1.9041,
+    "campaignCount": 0
+  },
+  "funnelRows": [
+    {
+      "suffix": "meta ads 9",
+      "productName": "Meta Ads 9",
+      "revenue": 25931657.0,
+      "paid": 1494,
+      "checkout": 1865,
+      "unfinished": 371,
+      "avgInfaq": 17357.2,
+      "checkoutToPaidPct": 80.11,
+      "linkClicks": 18000,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 8.3,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "organic",
+      "productName": "Organic",
+      "revenue": 24509108.0,
+      "paid": 1505,
+      "checkout": 1812,
+      "unfinished": 307,
+      "avgInfaq": 16285.12,
+      "checkoutToPaidPct": 83.06,
+      "linkClicks": 5500,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 27.36,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "testing judul 4 : manisfesting, cinta rezeki karir",
+      "productName": "Testing Judul 4 : Manisfesting, Cinta Rezeki Karir",
+      "revenue": 14942187.0,
+      "paid": 807,
+      "checkout": 1063,
+      "unfinished": 256,
+      "avgInfaq": 18515.72,
+      "checkoutToPaidPct": 75.92,
+      "linkClicks": 13000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 6.21,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "channel wa",
+      "productName": "Channel WA",
+      "revenue": 9479335.0,
+      "paid": 660,
+      "checkout": 921,
+      "unfinished": 261,
+      "avgInfaq": 14362.63,
+      "checkoutToPaidPct": 71.66,
+      "linkClicks": 11000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 6.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 1",
+      "productName": "Meta Ads 1",
+      "revenue": 8741442.0,
+      "paid": 603,
+      "checkout": 723,
+      "unfinished": 120,
+      "avgInfaq": 14496.59,
+      "checkoutToPaidPct": 83.4,
+      "linkClicks": 8500,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 7.09,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 8",
+      "productName": "Meta Ads 8",
+      "revenue": 5843834.0,
+      "paid": 312,
+      "checkout": 372,
+      "unfinished": 60,
+      "avgInfaq": 18730.24,
+      "checkoutToPaidPct": 83.87,
+      "linkClicks": 4600,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 6.78,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 10",
+      "productName": "Meta Ads 10",
+      "revenue": 4504550.0,
+      "paid": 240,
+      "checkout": 309,
+      "unfinished": 69,
+      "avgInfaq": 18768.96,
+      "checkoutToPaidPct": 77.67,
+      "linkClicks": 3200,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 7.5,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "wa",
+      "productName": "WA",
+      "revenue": 2772221.0,
+      "paid": 181,
+      "checkout": 219,
+      "unfinished": 38,
+      "avgInfaq": 15316.14,
+      "checkoutToPaidPct": 82.65,
+      "linkClicks": 802,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 22.57,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "telegram canal",
+      "productName": "Telegram Canal",
+      "revenue": 2631945.0,
+      "paid": 169,
+      "checkout": 202,
+      "unfinished": 33,
+      "avgInfaq": 15573.64,
+      "checkoutToPaidPct": 83.66,
+      "linkClicks": 564,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 29.96,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 5",
+      "productName": "Meta Ads 5",
+      "revenue": 2562590.0,
+      "paid": 156,
+      "checkout": 185,
+      "unfinished": 29,
+      "avgInfaq": 16426.86,
+      "checkoutToPaidPct": 84.32,
+      "linkClicks": 2200,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 7.09,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "testing judul 2 : memaafkan tapi bukan melupakan",
+      "productName": "Testing Judul 2 : Memaafkan tapi bukan Melupakan",
+      "revenue": 1759430.0,
+      "paid": 88,
+      "checkout": 109,
+      "unfinished": 21,
+      "avgInfaq": 19993.52,
+      "checkoutToPaidPct": 80.73,
+      "linkClicks": 1000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 8.8,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "luar negeri",
+      "productName": "Luar Negeri",
+      "revenue": 1519381.0,
+      "paid": 13,
+      "checkout": 13,
+      "unfinished": 0,
+      "avgInfaq": 116875.46,
+      "checkoutToPaidPct": 100.0,
+      "linkClicks": 1200,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 1.08,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads (broken strings)",
+      "productName": "Meta Ads (Broken Strings)",
+      "revenue": 1251321.0,
+      "paid": 63,
+      "checkout": 81,
+      "unfinished": 18,
+      "avgInfaq": 19862.24,
+      "checkoutToPaidPct": 77.78,
+      "linkClicks": 2700,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 2.33,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 4",
+      "productName": "Meta Ads 4",
+      "revenue": 783867.0,
+      "paid": 48,
+      "checkout": 54,
+      "unfinished": 6,
+      "avgInfaq": 16330.56,
+      "checkoutToPaidPct": 88.89,
+      "linkClicks": 1100,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 4.36,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 3",
+      "productName": "Meta Ads 3",
+      "revenue": 270704.0,
+      "paid": 14,
+      "checkout": 17,
+      "unfinished": 3,
+      "avgInfaq": 19336.0,
+      "checkoutToPaidPct": 82.35,
+      "linkClicks": 679,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 2.06,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "quotes hanan attaki",
+      "productName": "Quotes Hanan Attaki",
+      "revenue": 175325.0,
+      "paid": 6,
+      "checkout": 9,
+      "unfinished": 3,
+      "avgInfaq": 29220.83,
+      "checkoutToPaidPct": 66.67,
+      "linkClicks": 120,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 5.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "testing judul 5 : the power manisfesting",
+      "productName": "Testing Judul 5 : The Power Manisfesting",
+      "revenue": 165732.0,
+      "paid": 8,
+      "checkout": 9,
+      "unfinished": 1,
+      "avgInfaq": 20716.5,
+      "checkoutToPaidPct": 88.89,
+      "linkClicks": 324,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 2.47,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "testing judul 3 : faith under pressure",
+      "productName": "Testing Judul 3 : Faith under pressure",
+      "revenue": 144081.0,
+      "paid": 7,
+      "checkout": 9,
+      "unfinished": 2,
+      "avgInfaq": 20583.0,
+      "checkoutToPaidPct": 77.78,
+      "linkClicks": 473,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 1.48,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "ph",
+      "productName": "PH",
+      "revenue": 127168.0,
+      "paid": 10,
+      "checkout": 12,
+      "unfinished": 2,
+      "avgInfaq": 12716.8,
+      "checkoutToPaidPct": 83.33,
+      "linkClicks": 173,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 5.78,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 2",
+      "productName": "Meta Ads 2",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 240,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "meta ads 6",
+      "productName": "Meta Ads 6",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 252,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hanan attaki",
+      "productName": "Hanan Attaki",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 2,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "testing judul 1 : enggak nikah gapapa kan?",
+      "productName": "Testing Judul 1 : Enggak Nikah Gapapa kan?",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 1300,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    }
+  ],
+  "dailyRevenue": [
+    {
+      "date": "2026-01-25",
+      "revenue": 6211568.0
+    },
+    {
+      "date": "2026-01-26",
+      "revenue": 3371632.0
+    },
+    {
+      "date": "2026-01-27",
+      "revenue": 2859641.0
+    },
+    {
+      "date": "2026-01-28",
+      "revenue": 1252767.0
+    },
+    {
+      "date": "2026-01-29",
+      "revenue": 1574491.0
+    },
+    {
+      "date": "2026-01-30",
+      "revenue": 2021945.0
+    },
+    {
+      "date": "2026-01-31",
+      "revenue": 1569245.0
+    },
+    {
+      "date": "2026-02-01",
+      "revenue": 2551685.0
+    },
+    {
+      "date": "2026-02-02",
+      "revenue": 4339759.0
+    },
+    {
+      "date": "2026-02-03",
+      "revenue": 8837745.0
+    },
+    {
+      "date": "2026-02-04",
+      "revenue": 2221906.0
+    },
+    {
+      "date": "2026-02-05",
+      "revenue": 4967172.0
+    },
+    {
+      "date": "2026-02-06",
+      "revenue": 3185378.0
+    },
+    {
+      "date": "2026-02-07",
+      "revenue": 1901302.0
+    },
+    {
+      "date": "2026-02-08",
+      "revenue": 4360229.0
+    },
+    {
+      "date": "2026-02-09",
+      "revenue": 2825288.0
+    },
+    {
+      "date": "2026-02-10",
+      "revenue": 1391901.0
+    },
+    {
+      "date": "2026-02-11",
+      "revenue": 1463731.0
+    },
+    {
+      "date": "2026-02-12",
+      "revenue": 2199635.0
+    },
+    {
+      "date": "2026-02-13",
+      "revenue": 1214705.0
+    },
+    {
+      "date": "2026-02-14",
+      "revenue": 1171369.0
+    },
+    {
+      "date": "2026-02-15",
+      "revenue": 1724366.0
+    },
+    {
+      "date": "2026-02-16",
+      "revenue": 3236674.0
+    },
+    {
+      "date": "2026-02-17",
+      "revenue": 3796180.0
+    },
+    {
+      "date": "2026-02-18",
+      "revenue": 2623781.0
+    },
+    {
+      "date": "2026-02-19",
+      "revenue": 1943662.0
+    },
+    {
+      "date": "2026-02-20",
+      "revenue": 2133414.0
+    },
+    {
+      "date": "2026-02-21",
+      "revenue": 4795630.0
+    },
+    {
+      "date": "2026-02-22",
+      "revenue": 9008974.0
+    },
+    {
+      "date": "2026-02-23",
+      "revenue": 9101785.0
+    },
+    {
+      "date": "2026-02-24",
+      "revenue": 8671764.0
+    },
+    {
+      "date": "2026-02-25",
+      "revenue": 20760.0
+    }
+  ],
+  "audit": {
+    "funnelCount": 23,
+    "funnelRevenueSum": 108115878.0,
+    "funnelPaidSum": 6384.0,
+    "funnelCheckoutSum": 7984.0
+  }
+}

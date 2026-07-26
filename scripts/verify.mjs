@@ -1,0 +1,21 @@
+const base = process.env.DASHBOARD_URL || 'http://localhost:5182';
+const fetchJson = async (path) => {
+  const res = await fetch(`${base}${path}`, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`${path} HTTP ${res.status}`);
+  return res.json();
+};
+
+const eps = await fetchJson('/data/episodes.json');
+if (!Array.isArray(eps) || eps.length < 10) throw new Error('Expected episodes 31-40');
+for (const ep of [31, 38, 39, 40]) {
+  const data = await fetchJson(`/data/episodes/${ep}.json`);
+  if (!data.kpi?.revenue || !data.funnelRows?.length) throw new Error(`Episode ${ep} missing data`);
+  if ('jsonPath' in data || JSON.stringify(data).includes('C:/Users') || JSON.stringify(data).includes('C:\\Users')) {
+    throw new Error(`Episode ${ep} exposes local path`);
+  }
+}
+const html = await fetch(base).then(r => r.text());
+for (const needle of ['Raihan KataUHA Dashboard', 'episodeSelect', 'Funnel Performance', 'Compare Episodes']) {
+  if (!html.includes(needle)) throw new Error(`Missing ${needle}`);
+}
+console.log(JSON.stringify({ ok: true, episodes: eps.map(e => e.episode), latest: eps.at(-1)?.label, dataSource: 'static-public-data' }, null, 2));
