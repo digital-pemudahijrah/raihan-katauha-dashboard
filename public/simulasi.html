@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulasi Raihan KataUHA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-layout simulation-layout">
+    <aside class="side-nav" aria-label="Navigasi simulasi">
+      <div class="side-brand">
+        <span>Simulasi</span>
+        <strong>Raihan</strong>
+      </div>
+      <nav>
+        <a href="/">Dashboard Utama</a>
+        <a class="active" href="/simulasi.html">Simulasi Raihan</a>
+        <a href="#input">Target</a>
+        <a href="#hasil">Hasil</a>
+        <a href="#skenario">Preset</a>
+      </nav>
+    </aside>
+
+    <main class="shell">
+      <header class="topbar simulation-topbar">
+        <div>
+          <span class="eyebrow">Planning Lab</span>
+          <h1>Simulasi Raihan KataUHA</h1>
+          <p>Hitung target revenue, peserta, checkout, ads budget, ROAS, dan pace harian berdasarkan baseline episode.</p>
+        </div>
+        <a class="topbar-cta" href="/">Kembali ke Dashboard</a>
+      </header>
+
+      <section class="simulation-hero card">
+        <div>
+          <span class="eyebrow">Baseline</span>
+          <h2 id="baselineTitle">Memuat data...</h2>
+          <p id="baselineMeta">Pilih baseline untuk memulai simulasi target.</p>
+        </div>
+        <div class="baseline-quick" id="baselineQuick"></div>
+      </section>
+
+      <section class="simulation-grid" id="input">
+        <div class="card simulation-panel">
+          <div class="section-title compact-title">
+            <div>
+              <h3>Input Target</h3>
+              <p>Ubah angka target untuk melihat kebutuhan gap dan pace.</p>
+            </div>
+          </div>
+          <div class="sim-form">
+            <label>Baseline
+              <select id="baselineSelect"></select>
+            </label>
+            <label>Target Revenue
+              <input id="targetRevenue" type="number" min="0" step="1000000" />
+            </label>
+            <label>Target Avg Infaq
+              <input id="targetAvgInfaq" type="number" min="1" step="1000" />
+            </label>
+            <label>Checkout -&gt; Paid (%)
+              <input id="targetConversion" type="number" min="1" max="100" step="0.1" />
+            </label>
+            <label>Ads Spend / Revenue Max (%)
+              <input id="targetSpendPct" type="number" min="0" max="100" step="0.1" />
+            </label>
+            <label>Target ROAS Ads Funnel
+              <input id="targetRoas" type="number" min="0" step="0.1" />
+            </label>
+            <label>Hari Tersisa
+              <input id="daysRemaining" type="number" min="1" step="1" />
+            </label>
+          </div>
+        </div>
+
+        <div class="card simulation-panel result-panel" id="hasil">
+          <div class="section-title compact-title">
+            <div>
+              <h3>Hasil Simulasi</h3>
+              <p>Ringkasan kebutuhan untuk mengejar target.</p>
+            </div>
+          </div>
+          <div class="simulation-result-grid" id="simulationResults"></div>
+          <div class="simulation-insight" id="simulationInsight">-</div>
+        </div>
+      </section>
+
+      <section class="card scenario-card" id="skenario">
+        <div class="section-title compact-title">
+          <div>
+            <h3>Skenario Cepat</h3>
+            <p>Preset untuk eksplorasi target umum.</p>
+          </div>
+        </div>
+        <div class="scenario-buttons" id="scenarioButtons">
+          <button data-field="targetRevenue" data-value="180000000">Target 180jt</button>
+          <button data-field="targetRevenue" data-value="250000000">Target 250jt</button>
+          <button data-field="targetRevenue" data-value="300000000">Target 300jt</button>
+          <button data-field="targetAvgInfaq" data-value="25000">Avg 25rb</button>
+          <button data-field="targetAvgInfaq" data-value="28000">Avg 28rb</button>
+          <button data-field="targetConversion" data-value="70">CR 70%</button>
+          <button data-field="targetConversion" data-value="75">CR 75%</button>
+          <button data-field="targetSpendPct" data-value="20">Spend max 20%</button>
+          <button data-field="targetRoas" data-value="2.5">ROAS 2.5x</button>
+          <button id="resetBaseline" type="button">Reset baseline</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/simulasi.js"></script>
+</body>
+</html>
