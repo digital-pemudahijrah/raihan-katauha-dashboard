@@ -29,7 +29,7 @@ const els = {
   deltaChart: document.querySelector('#deltaChart'),
   deltaInsight: document.querySelector('#deltaInsight'),
   auditText: document.querySelector('#auditText'),
-  navLinks: [...document.querySelectorAll('.side-nav a')]
+  navLinks: [...document.querySelectorAll('.side-nav a[data-section]')]
 };
 
 const fmt = new Intl.NumberFormat('id-ID');
