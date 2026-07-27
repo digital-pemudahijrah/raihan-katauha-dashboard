@@ -55,7 +55,9 @@ select, input { width: 100%; border: 1px solid var(--line); background: #fff; co
 .cumulative-card .section-title p, .cumulative-status { color: rgba(255,255,255,.78); }
 .cumulative-eyebrow { color: #132045; background: rgba(255,255,255,.86); margin-bottom: 10px; }
 .cumulative-title { align-items: center; }
-.cumulative-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.cumulative-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.cumulative-year-filter { display: grid; gap: 5px; color: rgba(255,255,255,.76); font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: .04em; }
+.cumulative-year-filter select { min-width: 150px; padding: 10px 34px 10px 12px; border-radius: 999px; color: #152245; background: rgba(255,255,255,.94); font-size: 13px; font-weight: 900; }
 .cumulative-actions button { border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 11px 14px; color: #fff; background: rgba(255,255,255,.12); font: inherit; font-size: 13px; font-weight: 900; cursor: pointer; backdrop-filter: blur(10px); }
 .cumulative-actions button:hover { background: rgba(255,255,255,.24); }
 .episode-chip-grid { padding: 0 20px 14px; display: flex; flex-wrap: wrap; gap: 10px; }

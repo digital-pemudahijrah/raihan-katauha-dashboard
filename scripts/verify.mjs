@@ -15,7 +15,7 @@ for (const ep of [31, 38, 39, 40]) {
   }
 }
 const html = await fetch(base).then(r => r.text());
-for (const needle of ['Raihan KataUHA Dashboard', 'episodeSelect', 'Funnel Performance', 'Compare Episodes', 'Simulasi Raihan']) {
+for (const needle of ['Raihan KataUHA Dashboard', 'episodeSelect', 'Funnel Performance', 'Compare Episodes', 'Simulasi Raihan', 'cumulativeYearFilter']) {
   if (!html.includes(needle)) throw new Error(`Missing ${needle}`);
 }
 const simHtml = await fetch(`${base}/simulasi.html`).then(r => r.text());

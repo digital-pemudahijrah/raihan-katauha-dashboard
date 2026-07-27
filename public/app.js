@@ -1,5 +1,5 @@
 const DATA_BASE = '/data';
-const state = { episodes: [], current: null, query: '', sortBy: 'revenue', cumulativeSelection: new Set() };
+const state = { episodes: [], current: null, query: '', sortBy: 'revenue', cumulativeSelection: new Set(), cumulativeYear: 'all' };
 
 const els = {
   episodeSelect: document.querySelector('#episodeSelect'),
@@ -13,6 +13,7 @@ const els = {
   heroRoas: document.querySelector('#heroRoas'),
   cumulativeSummary: document.querySelector('#cumulativeSummary'),
   cumulativeEpisodeChips: document.querySelector('#cumulativeEpisodeChips'),
+  cumulativeYearFilter: document.querySelector('#cumulativeYearFilter'),
   cumulativeStatus: document.querySelector('#cumulativeStatus'),
   selectAllEpisodes: document.querySelector('#selectAllEpisodes'),
   clearEpisodes: document.querySelector('#clearEpisodes'),
@@ -38,14 +39,34 @@ const num = (n) => fmt.format(Math.round(Number(n) || 0));
 const pct = (n) => `${(Number(n) || 0).toFixed(2).replace('.', ',')}%`;
 const x = (n) => `${(Number(n) || 0).toFixed(2).replace('.', ',')}x`;
 const shortDate = (iso) => iso ? new Date(iso).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }) : '-';
+const episodeYear = (ep) => {
+  const raw = ep?.eventStart || ep?.jsonModifiedAt || '';
+  const match = String(raw).match(/20\d{2}/);
+  return match ? match[0] : 'Tanpa Tahun';
+};
 
 function kpiCard(label, value, note) {
   return `<div class="kpi"><span>${label}</span><strong>${value}</strong><small>${note || ''}</small></div>`;
 }
 
+function filteredCumulativeEpisodes() {
+  if (state.cumulativeYear === 'all') return state.episodes;
+  return state.episodes.filter(ep => episodeYear(ep) === state.cumulativeYear);
+}
+
 function selectedCumulativeEpisodes() {
-  const selected = state.episodes.filter(ep => state.cumulativeSelection.has(ep.episode));
-  return selected.length ? selected : state.episodes;
+  const candidates = filteredCumulativeEpisodes();
+  const selected = candidates.filter(ep => state.cumulativeSelection.has(ep.episode));
+  return selected.length ? selected : candidates;
+}
+
+function renderCumulativeYearFilter() {
+  const years = [...new Set(state.episodes.map(episodeYear))].sort();
+  els.cumulativeYearFilter.innerHTML = [
+    '<option value="all">Semua Tahun</option>',
+    ...years.map(year => `<option value="${year}">${year}</option>`)
+  ].join('');
+  els.cumulativeYearFilter.value = state.cumulativeYear;
 }
 
 function sumEpisodes(rows, key) {
@@ -53,10 +74,11 @@ function sumEpisodes(rows, key) {
 }
 
 function renderCumulativeChips() {
-  els.cumulativeEpisodeChips.innerHTML = state.episodes.map(ep => {
+  const episodes = filteredCumulativeEpisodes();
+  els.cumulativeEpisodeChips.innerHTML = episodes.map(ep => {
     const active = state.cumulativeSelection.has(ep.episode);
     return `<button type="button" class="episode-chip ${active ? 'active' : ''}" data-episode="${ep.episode}">
-      <strong>${ep.shortLabel}</strong><span>${shortDate(ep.eventStart)}</span>
+      <strong>${ep.shortLabel}</strong><span>${episodeYear(ep)} • ${shortDate(ep.eventStart)}</span>
     </button>`;
   }).join('');
 }
@@ -83,13 +105,15 @@ function renderCumulativeSummary() {
   const cumulativeRoas = totalAdsSpend ? totalAdsRevenue / totalAdsSpend : 0;
   const first = rows[0]?.shortLabel || '-';
   const last = rows.at(-1)?.shortLabel || '-';
-  const isAll = rows.length === state.episodes.length;
+  const candidates = filteredCumulativeEpisodes();
+  const isAll = rows.length === candidates.length;
+  const yearLabel = state.cumulativeYear === 'all' ? 'Semua tahun' : `Tahun ${state.cumulativeYear}`;
   els.cumulativeStatus.textContent = isAll
-    ? `Mode: Semua episode (${first} - ${last})`
-    : `Mode: Custom ${rows.length} episode terpilih (${rows.map(ep => ep.shortLabel).join(', ')})`;
+    ? `Mode: ${yearLabel} (${first} - ${last})`
+    : `Mode: ${yearLabel}, custom ${rows.length} episode terpilih (${rows.map(ep => ep.shortLabel).join(', ')})`;
   els.cumulativeSummary.innerHTML = [
-    kpiCard('Total Episode', num(rows.length), isAll ? `Semua: ${first} - ${last}` : 'Custom selection'),
-    kpiCard('Total Revenue', rp(totalRevenue), isAll ? 'Akumulasi semua episode' : 'Akumulasi episode terpilih'),
+    kpiCard('Total Episode', num(rows.length), isAll ? `${yearLabel}: ${first} - ${last}` : 'Custom selection'),
+    kpiCard('Total Revenue', rp(totalRevenue), isAll ? `Akumulasi ${yearLabel.toLowerCase()}` : 'Akumulasi episode terpilih'),
     kpiCard('Total Peserta Bayar', num(totalPaid), `${pct(checkoutToPaidPct)} dari checkout`),
     kpiCard('Total Checkout', num(totalCheckout), `${num(totalUnfinished)} belum selesai`),
     kpiCard('Avg Infaq Gabungan', rp(weightedAvgInfaq), 'Total revenue / total paid'),
@@ -288,6 +312,7 @@ async function init() {
   els.compareEpisode.value = state.episodes.at(-1)?.episode || state.episodes[0]?.episode;
   els.episodeSelect.value = state.episodes.at(-1)?.episode || 40;
   state.cumulativeSelection = new Set(state.episodes.map(ep => ep.episode));
+  renderCumulativeYearFilter();
   renderCumulativeChips();
   renderCumulativeSummary();
   renderCompare();
@@ -305,8 +330,14 @@ els.cumulativeEpisodeChips.addEventListener('click', (event) => {
   if (!chip) return;
   toggleCumulativeEpisode(Number(chip.dataset.episode));
 });
+els.cumulativeYearFilter.addEventListener('change', (event) => {
+  state.cumulativeYear = event.target.value;
+  state.cumulativeSelection = new Set(filteredCumulativeEpisodes().map(ep => ep.episode));
+  renderCumulativeChips();
+  renderCumulativeSummary();
+});
 els.selectAllEpisodes.addEventListener('click', () => {
-  state.cumulativeSelection = new Set(state.episodes.map(ep => ep.episode));
+  state.cumulativeSelection = new Set(filteredCumulativeEpisodes().map(ep => ep.episode));
   renderCumulativeChips();
   renderCumulativeSummary();
 });
