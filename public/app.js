@@ -1,5 +1,5 @@
 const DATA_BASE = '/data';
-const state = { episodes: [], current: null, query: '', sortBy: 'revenue', cumulativeSelection: new Set(), cumulativeYear: 'all' };
+const state = { episodes: [], current: null, query: '', sortBy: 'revenue', cumulativeSelection: new Set(), cumulativeYear: 'all', benchmarkMetric: 'revenue', benchmarkYear: 'all', benchmarkShowAll: false, trendMetric: 'revenue' };
 
 const els = {
   episodeSelect: document.querySelector('#episodeSelect'),
@@ -24,6 +24,12 @@ const els = {
   sortBy: document.querySelector('#sortBy'),
   funnelBody: document.querySelector('#funnelBody'),
   compareBody: document.querySelector('#compareBody'),
+  benchmarkMetric: document.querySelector('#benchmarkMetric'),
+  benchmarkYear: document.querySelector('#benchmarkYear'),
+  benchmarkSummary: document.querySelector('#benchmarkSummary'),
+  benchmarkTrends: document.querySelector('#benchmarkTrends'),
+  benchmarkNote: document.querySelector('#benchmarkNote'),
+  benchmarkToggle: document.querySelector('#benchmarkToggle'),
   baseEpisode: document.querySelector('#baseEpisode'),
   compareEpisode: document.querySelector('#compareEpisode'),
   deltaSummary: document.querySelector('#deltaSummary'),
@@ -206,16 +212,166 @@ function renderFunnel() {
   </tr>`).join('') || '<tr><td colspan="9">Tidak ada data sesuai filter.</td></tr>';
 }
 
+const benchmarkMetrics = {
+  revenue: { label: 'Revenue', format: rp, higherIsBetter: true },
+  paid: { label: 'Peserta Bayar', format: num, higherIsBetter: true },
+  checkout: { label: 'Checkout', format: num, higherIsBetter: true },
+  checkoutToPaidPct: { label: 'Checkout -> Paid', format: pct, higherIsBetter: true },
+  roasAdsFunnelWithPpn: { label: 'ROAS Ads Funnel', format: x, higherIsBetter: true },
+  adsSpendToRevenuePct: { label: 'Ads Spend / Revenue', format: pct, higherIsBetter: false }
+};
+
+function benchmarkRows() {
+  if (state.benchmarkYear === 'all') return state.episodes;
+  return state.episodes.filter(ep => episodeYear(ep) === state.benchmarkYear);
+}
+
+function renderBenchmarkYearFilter() {
+  const years = [...new Set(state.episodes.map(episodeYear))].sort();
+  els.benchmarkYear.innerHTML = [
+    '<option value="all">Semua Tahun</option>',
+    ...years.map(year => `<option value="${year}">${year}</option>`)
+  ].join('');
+  els.benchmarkYear.value = state.benchmarkYear;
+}
+
+function bestEpisode(rows, metricKey, higherIsBetter = true) {
+  return [...rows].sort((a, b) => {
+    const av = Number(a.kpi?.[metricKey]) || 0;
+    const bv = Number(b.kpi?.[metricKey]) || 0;
+    return higherIsBetter ? bv - av : av - bv;
+  })[0];
+}
+
+function benchmarkCard(label, ep, metricKey, note) {
+  const metric = benchmarkMetrics[metricKey];
+  if (!ep) return `<div class="benchmark-card"><span>${label}</span><strong>-</strong><small>Data belum tersedia</small></div>`;
+  return `<div class="benchmark-card">
+    <span>${label}</span>
+    <strong>${metric.format(ep.kpi?.[metricKey])}</strong>
+    <small>${ep.shortLabel} - ${ep.title}${note ? `<br>${note}` : ''}</small>
+  </div>`;
+}
+
+function renderBenchmarkSummary(rows) {
+  const latest = rows.at(-1);
+  els.benchmarkSummary.innerHTML = [
+    benchmarkCard('Best Revenue', bestEpisode(rows, 'revenue'), 'revenue'),
+    benchmarkCard('Best ROAS', bestEpisode(rows, 'roasAdsFunnelWithPpn'), 'roasAdsFunnelWithPpn'),
+    benchmarkCard('Best Conversion', bestEpisode(rows, 'checkoutToPaidPct'), 'checkoutToPaidPct'),
+    benchmarkCard('Episode Terbaru', latest, state.benchmarkMetric, benchmarkMetrics[state.benchmarkMetric].label)
+  ].join('');
+}
+
+function compactValue(n, formatter) {
+  const value = Number(n) || 0;
+  if (formatter === rp) return `Rp${(value / 1000000).toFixed(value >= 100000000 ? 0 : 1).replace('.', ',')}jt`;
+  if (formatter === num && value >= 1000) return `${(value / 1000).toFixed(value >= 10000 ? 0 : 1).replace('.', ',')}rb`;
+  return formatter(value);
+}
+
+function trendPath(points) {
+  return points.map((p, index) => `${index ? 'L' : 'M'} ${p.x.toFixed(2)} ${p.lineY.toFixed(2)}`).join(' ');
+}
+
+function miniTrend(metricKey, label, formatter) {
+  const rows = benchmarkRows();
+  if (!rows.length) return '';
+  const values = rows.map(ep => Number(ep.kpi?.[metricKey]) || 0);
+  const max = Math.max(...values, 1);
+  const min = Math.min(...values, 0);
+  const range = Math.max(max - min, 1);
+  const higherIsBetter = metricKey !== 'adsSpendToRevenuePct';
+  const best = bestEpisode(rows, metricKey, higherIsBetter);
+  const latest = rows.at(-1);
+  const firstValue = values[0] || 0;
+  const latestValue = Number(latest?.kpi?.[metricKey]) || 0;
+  const change = firstValue ? ((latestValue - firstValue) / firstValue) * 100 : 0;
+  const changeClass = Math.abs(change) < 0.01 ? 'flat' : ((higherIsBetter ? change > 0 : change < 0) ? 'good' : 'bad');
+  const svgWidth = Math.max(420, rows.length * 48);
+  const chart = { left: 14, right: svgWidth - 14, top: 18, bottom: 80 };
+  const band = (chart.right - chart.left) / rows.length;
+  const barWidth = Math.min(24, band * 0.56);
+  const points = rows.map((ep, index) => {
+    const value = Number(ep.kpi?.[metricKey]) || 0;
+    const x = chart.left + band * index + band / 2;
+    const barHeight = Math.max(((value - min) / range) * (chart.bottom - chart.top), 4);
+    const y = chart.bottom - barHeight;
+    return { ep, value, x, y, lineY: y - 4, barHeight };
+  });
+  const bars = points.map(p => {
+    const featured = p.ep.episode === latest?.episode || p.ep.episode === best?.episode;
+    return `<g class="combo-bar-group ${featured ? 'featured' : ''}">
+      <rect class="combo-bar" x="${(p.x - barWidth / 2).toFixed(2)}" y="${p.y.toFixed(2)}" width="${barWidth.toFixed(2)}" height="${p.barHeight.toFixed(2)}" rx="3"></rect>
+      <title>${p.ep.shortLabel}: ${formatter(p.value)}</title>
+    </g>`;
+  }).join('');
+  const valueLabels = points.map(p => {
+    const featured = p.ep.episode === latest?.episode || p.ep.episode === best?.episode;
+    return `<text class="combo-value ${featured ? 'featured' : ''}" x="${p.x.toFixed(2)}" y="${Math.max(9, p.y - 11).toFixed(2)}">${compactValue(p.value, formatter)}</text>`;
+  }).join('');
+  const lineDots = points.map(p => `<g class="combo-dot-group">
+    <circle class="combo-dot" cx="${p.x.toFixed(2)}" cy="${p.lineY.toFixed(2)}" r="2.1"></circle>
+    <title>${p.ep.shortLabel} trend: ${formatter(p.value)}</title>
+  </g>`).join('');
+  const axisLabels = points.map(p => `<text class="combo-axis-label" x="${p.x.toFixed(2)}" y="94">${p.ep.shortLabel}</text>`).join('');
+  return `<article class="trend-card combo-trend">
+    <div class="trend-head">
+      <span>${label}</span>
+      <strong>${formatter(latestValue)}</strong>
+      <small>Latest ${latest?.shortLabel || '-'} · Best ${best?.shortLabel || '-'}</small>
+    </div>
+    <div class="trend-change ${changeClass}">${change >= 0 ? '+' : ''}${change.toFixed(1).replace('.', ',')}%</div>
+    <div class="combo-chart-scroll" aria-label="Scroll horizontal chart episode">
+    <svg class="combo-chart" style="min-width:${svgWidth}px" viewBox="0 0 ${svgWidth} 100" preserveAspectRatio="xMidYMid meet" aria-label="Bar chart dan trend line ${label} antar episode">
+      <path class="combo-grid" d="M 14 18 H ${chart.right} M 14 49 H ${chart.right} M 14 80 H ${chart.right}"></path>
+      ${bars}
+      <path class="combo-line" d="${trendPath(points)}"></path>
+      ${lineDots}
+      ${valueLabels}
+      <path class="combo-axis" d="M 14 80 H ${chart.right}"></path>
+      ${axisLabels}
+    </svg>
+    </div>
+  </article>`;
+}
+
+function renderBenchmarkTrends() {
+  const tabs = [
+    { key: 'revenue', label: 'Revenue', format: rp },
+    { key: 'paid', label: 'Peserta Bayar', format: num },
+    { key: 'roasAdsFunnelWithPpn', label: 'ROAS', format: x }
+  ];
+  const active = tabs.find(tab => tab.key === state.trendMetric) || tabs[0];
+  els.benchmarkTrends.innerHTML = `<div class="trend-tabs" role="tablist" aria-label="Pilih trend benchmark">
+    ${tabs.map(tab => `<button type="button" role="tab" class="trend-tab ${tab.key === active.key ? 'active' : ''}" data-trend-metric="${tab.key}">${tab.label}</button>`).join('')}
+  </div>
+  ${miniTrend(active.key, `Trend ${active.label}`, active.format)}`;
+}
+
 function renderCompare() {
-  els.compareBody.innerHTML = state.episodes.map(ep => `<tr>
+  const rows = benchmarkRows();
+  const metric = benchmarkMetrics[state.benchmarkMetric];
+  const sorted = [...rows].sort((a, b) => {
+    const av = Number(a.kpi?.[state.benchmarkMetric]) || 0;
+    const bv = Number(b.kpi?.[state.benchmarkMetric]) || 0;
+    return metric.higherIsBetter ? bv - av : av - bv;
+  });
+  const visible = state.benchmarkShowAll ? sorted : sorted.slice(0, 5);
+  renderBenchmarkSummary(rows);
+  renderBenchmarkTrends();
+  els.compareBody.innerHTML = visible.map((ep, index) => `<tr>
+    <td><strong>#${index + 1}</strong><br><small>${metric.label}</small></td>
     <td><strong>${ep.label}</strong><br><small>${ep.title}</small></td>
     <td>${rp(ep.kpi.revenue)}</td>
     <td>${num(ep.kpi.paid)}</td>
     <td>${num(ep.kpi.checkout)}</td>
-    <td>${rp(ep.kpi.avgInfaq)}</td>
-    <td>${rp(ep.kpi.adsSpendWithPpn)}</td>
+    <td>${pct(ep.kpi.checkoutToPaidPct)}</td>
     <td>${x(ep.kpi.roasAdsFunnelWithPpn)}</td>
-  </tr>`).join('');
+    <td>${pct(ep.kpi.adsSpendToRevenuePct)}</td>
+  </tr>`).join('') || '<tr><td colspan="8">Tidak ada episode sesuai filter.</td></tr>';
+  els.benchmarkNote.textContent = `Menampilkan ${visible.length} dari ${sorted.length} episode, urut berdasarkan ${metric.label}${state.benchmarkYear === 'all' ? '' : ` tahun ${state.benchmarkYear}`}.`;
+  els.benchmarkToggle.textContent = state.benchmarkShowAll ? 'Ringkas ke Top 5' : 'Tampilkan semua';
 }
 
 const days = (n) => `${num(n)} hari`;
@@ -313,6 +469,7 @@ async function init() {
   els.episodeSelect.value = state.episodes.at(-1)?.episode || 40;
   state.cumulativeSelection = new Set(state.episodes.map(ep => ep.episode));
   renderCumulativeYearFilter();
+  renderBenchmarkYearFilter();
   renderCumulativeChips();
   renderCumulativeSummary();
   renderCompare();
@@ -323,6 +480,15 @@ async function init() {
 els.episodeSelect.addEventListener('change', (e) => loadEpisode(e.target.value));
 els.search.addEventListener('input', (e) => { state.query = e.target.value; renderFunnel(); });
 els.sortBy.addEventListener('change', (e) => { state.sortBy = e.target.value; renderFunnel(); });
+els.benchmarkMetric.addEventListener('change', (e) => { state.benchmarkMetric = e.target.value; renderCompare(); });
+els.benchmarkYear.addEventListener('change', (e) => { state.benchmarkYear = e.target.value; state.benchmarkShowAll = false; renderCompare(); });
+els.benchmarkToggle.addEventListener('click', () => { state.benchmarkShowAll = !state.benchmarkShowAll; renderCompare(); });
+els.benchmarkTrends.addEventListener('click', (event) => {
+  const tab = event.target.closest('[data-trend-metric]');
+  if (!tab) return;
+  state.trendMetric = tab.dataset.trendMetric;
+  renderBenchmarkTrends();
+});
 els.baseEpisode.addEventListener('change', renderDeltaComparison);
 els.compareEpisode.addEventListener('change', renderDeltaComparison);
 els.cumulativeEpisodeChips.addEventListener('click', (event) => {

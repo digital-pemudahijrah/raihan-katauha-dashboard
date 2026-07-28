@@ -151,27 +151,53 @@
     </section>
 
     <section class="card section-anchor" id="compare">
-      <div class="section-title">
+      <div class="section-title table-toolbar">
         <div>
-          <h3>Compare Episodes</h3>
-          <p>Perbandingan cepat episode 38-40.</p>
+          <h3>Episode Benchmark</h3>
+          <p>Leaderboard ringkas dengan trend tab Revenue, Peserta Bayar, dan ROAS.</p>
+        </div>
+        <div class="controls benchmark-controls">
+          <label>
+            Metric
+            <select id="benchmarkMetric" aria-label="Pilih metric benchmark">
+              <option value="revenue">Revenue</option>
+              <option value="paid">Peserta Bayar</option>
+              <option value="checkout">Checkout</option>
+              <option value="checkoutToPaidPct">Checkout -> Paid</option>
+              <option value="roasAdsFunnelWithPpn">ROAS Ads Funnel</option>
+              <option value="adsSpendToRevenuePct">Ads Spend / Revenue</option>
+            </select>
+          </label>
+          <label>
+            Tahun
+            <select id="benchmarkYear" aria-label="Filter benchmark berdasarkan tahun">
+              <option value="all">Semua Tahun</option>
+            </select>
+          </label>
         </div>
       </div>
+      <div class="benchmark-summary" id="benchmarkSummary"></div>
+      <div class="benchmark-trends" id="benchmarkTrends"></div>
       <div class="table-wrap compact">
         <table>
           <thead>
             <tr>
+              <th>Rank</th>
               <th>Episode</th>
               <th>Revenue</th>
               <th>Paid</th>
               <th>Checkout</th>
-              <th>Avg Infaq</th>
-              <th>Ads Spend + PPN</th>
+              <th>Checkout -> Paid</th>
               <th>ROAS Ads Funnel</th>
+              <th>Ads Spend / Revenue</th>
             </tr>
           </thead>
           <tbody id="compareBody"></tbody>
         </table>
+      </div>
+      <div class="benchmark-footer">
+        <span id="benchmarkNote">-</span>
+        <button type="button" id="benchmarkToggle">Tampilkan semua</button>
       </div>
     </section>
 
