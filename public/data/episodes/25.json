@@ -1,0 +1,505 @@
+{
+  "episode": 25,
+  "label": "KataUHA 25",
+  "shortLabel": "KU25",
+  "title": "Ya Allah, Aku Nggak Sekuat Itu !",
+  "eventStart": "2025-03-18",
+  "spreadsheetId": "",
+  "spreadsheetUrl": "",
+  "jsonModifiedAt": "2026-08-04T11:49:51.073037Z",
+  "promoStart": "2025-02-09",
+  "promoDays": 30,
+  "source": "Legacy normalized Raihan workbook",
+  "dataQuality": "legacy-normalized-partial-combined-reschedule",
+  "dataWarnings": [
+    "KU25 terdiri dari dua fase promosi: RAIHAN KU25 (hold) dan RAIHAN KU25-Reschedule; KPI agregat menjumlahkan keduanya sebagai satu episode.",
+    "Monitoring Revenue Harian memakai sheet RAIHAN KU25-Reschedule sesuai konfirmasi user karena sudah gabungan kedua fase promosi.",
+    "Unique clicks, product IDs, and live source URLs tidak tersedia di format legacy.",
+    "Meta/campaign breakdown tidak tersedia; memakai summary spend/conversion/ROAS dari kedua sheet.",
+    "Total monitoring revenue harian (261989679) berbeda dari combined summary/funnel revenue (259649608); dashboard mempertahankan combined summary/funnel sebagai KPI utama."
+  ],
+  "kpiTargets": {
+    "targetRevenue": 400000000,
+    "targetPaid": 15000,
+    "targetCheckout": 20000,
+    "targetAvgInfaq": 28000,
+    "targetCheckoutToPaidPct": 75.0
+  },
+  "kpi": {
+    "revenue": 259649608.0,
+    "paid": 9511,
+    "checkout": 12702,
+    "unfinished": 3191,
+    "avgInfaq": 27300.0,
+    "checkoutToPaidPct": 74.88,
+    "trackedClicks": 82179,
+    "trackedUniqueClicks": 0,
+    "adsFunnelRevenue": 92905141.0,
+    "adsSpend": 43088156.0,
+    "adsPpn": 0.0,
+    "adsSpendWithPpn": 43088156.0,
+    "adsSpendToRevenuePct": 16.59,
+    "roasAdsFunnelWithPpn": 2.16,
+    "metaRevenue": 92905141.0,
+    "metaRoas": 2.16
+  },
+  "aggregate": {
+    "revenue": 259649608,
+    "paid": 9511,
+    "checkout": 12702,
+    "unfinished": 3191
+  },
+  "metaSummary": {
+    "spend": 43088156.0,
+    "ppn": 0.0,
+    "spendWithPpn": 43088156.0,
+    "metaRevenue": 92905141.0,
+    "metaRoas": 2.1562,
+    "adsFunnelRevenue": 92905141.0,
+    "roasAdsFunnelWithPpn": 2.1562,
+    "campaignCount": 0
+  },
+  "funnelRows": [
+    {
+      "suffix": "hold-organic",
+      "productName": "Hold - Organic",
+      "revenue": 49214350.0,
+      "paid": 2009,
+      "checkout": 2609,
+      "unfinished": 600,
+      "avgInfaq": 24496.94,
+      "checkoutToPaidPct": 77.0,
+      "linkClicks": 6100,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 32.93,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-meta ads",
+      "productName": "Reschedule - Meta Ads",
+      "revenue": 48060457.0,
+      "paid": 1228,
+      "checkout": 1609,
+      "unfinished": 381,
+      "avgInfaq": 39137.18,
+      "checkoutToPaidPct": 76.32,
+      "linkClicks": 13274,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 9.25,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-meta ads",
+      "productName": "Hold - Meta Ads",
+      "revenue": 44844684.0,
+      "paid": 1667,
+      "checkout": 2147,
+      "unfinished": 480,
+      "avgInfaq": 26901.43,
+      "checkoutToPaidPct": 77.64,
+      "linkClicks": 16838,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 9.9,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-organic",
+      "productName": "Reschedule - Organic",
+      "revenue": 38389852.0,
+      "paid": 1206,
+      "checkout": 1452,
+      "unfinished": 246,
+      "avgInfaq": 31832.38,
+      "checkoutToPaidPct": 83.06,
+      "linkClicks": 12000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 10.05,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-wa",
+      "productName": "Hold - WA",
+      "revenue": 33765312.0,
+      "paid": 1513,
+      "checkout": 2308,
+      "unfinished": 795,
+      "avgInfaq": 22316.8,
+      "checkoutToPaidPct": 65.55,
+      "linkClicks": 10000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 15.13,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-cwa",
+      "productName": "Reschedule - CWA",
+      "revenue": 22878295.0,
+      "paid": 902,
+      "checkout": 1387,
+      "unfinished": 485,
+      "avgInfaq": 25363.96,
+      "checkoutToPaidPct": 65.03,
+      "linkClicks": 20000,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 4.51,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-wa",
+      "productName": "Reschedule - WA",
+      "revenue": 9643590.0,
+      "paid": 411,
+      "checkout": 491,
+      "unfinished": 80,
+      "avgInfaq": 23463.72,
+      "checkoutToPaidPct": 83.71,
+      "linkClicks": 1800,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 22.83,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-shiftmedia",
+      "productName": "Hold - ShiftMedia",
+      "revenue": 7130294.0,
+      "paid": 316,
+      "checkout": 392,
+      "unfinished": 76,
+      "avgInfaq": 22564.22,
+      "checkoutToPaidPct": 80.61,
+      "linkClicks": 1200,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 26.33,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-database (tele)",
+      "productName": "Hold - Database (Tele)",
+      "revenue": 3248603.0,
+      "paid": 162,
+      "checkout": 183,
+      "unfinished": 21,
+      "avgInfaq": 20053.1,
+      "checkoutToPaidPct": 88.52,
+      "linkClicks": 344,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 47.09,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-database (tele)",
+      "productName": "Reschedule - Database (Tele)",
+      "revenue": 1146170.0,
+      "paid": 36,
+      "checkout": 44,
+      "unfinished": 8,
+      "avgInfaq": 31838.06,
+      "checkoutToPaidPct": 81.82,
+      "linkClicks": 158,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 22.78,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-tiktok",
+      "productName": "Hold - Tiktok",
+      "revenue": 668146.0,
+      "paid": 32,
+      "checkout": 43,
+      "unfinished": 11,
+      "avgInfaq": 20879.56,
+      "checkoutToPaidPct": 74.42,
+      "linkClicks": 277,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 11.55,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-tiktok ads",
+      "productName": "Hold - Tiktok Ads",
+      "revenue": 587822.0,
+      "paid": 26,
+      "checkout": 34,
+      "unfinished": 8,
+      "avgInfaq": 22608.54,
+      "checkoutToPaidPct": 76.47,
+      "linkClicks": 61,
+      "uniqueClicks": 0,
+      "clickSource": "Meta/TikTok Ads",
+      "clickToPaidPct": 42.62,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-pt",
+      "productName": "Reschedule - PT",
+      "revenue": 51381.0,
+      "paid": 1,
+      "checkout": 1,
+      "unfinished": 0,
+      "avgInfaq": 51381.0,
+      "checkoutToPaidPct": 100.0,
+      "linkClicks": 72,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 1.39,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "hold-cwa",
+      "productName": "Hold - CWA",
+      "revenue": 20652.0,
+      "paid": 2,
+      "checkout": 2,
+      "unfinished": 0,
+      "avgInfaq": 10326.0,
+      "checkoutToPaidPct": 100.0,
+      "linkClicks": 51,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 3.92,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    },
+    {
+      "suffix": "reschedule-ph",
+      "productName": "Reschedule - PH",
+      "revenue": 0.0,
+      "paid": 0,
+      "checkout": 0,
+      "unfinished": 0,
+      "avgInfaq": 0.0,
+      "checkoutToPaidPct": 0.0,
+      "linkClicks": 4,
+      "uniqueClicks": 0,
+      "clickSource": "legacy manual",
+      "clickToPaidPct": 0.0,
+      "recommendation": "Legacy import - cek detail source jika perlu audit lanjutan"
+    }
+  ],
+  "dailyRevenue": [
+    {
+      "date": "2025-02-08",
+      "revenue": 2009843.0
+    },
+    {
+      "date": "2025-02-09",
+      "revenue": 7950850.0
+    },
+    {
+      "date": "2025-02-10",
+      "revenue": 7978559.0
+    },
+    {
+      "date": "2025-02-11",
+      "revenue": 3925181.0
+    },
+    {
+      "date": "2025-02-12",
+      "revenue": 2275180.0
+    },
+    {
+      "date": "2025-02-13",
+      "revenue": 1722565.0
+    },
+    {
+      "date": "2025-02-14",
+      "revenue": 1661466.0
+    },
+    {
+      "date": "2025-02-15",
+      "revenue": 4020864.0
+    },
+    {
+      "date": "2025-02-16",
+      "revenue": 4877773.0
+    },
+    {
+      "date": "2025-02-17",
+      "revenue": 16281749.0
+    },
+    {
+      "date": "2025-02-18",
+      "revenue": 11453846.0
+    },
+    {
+      "date": "2025-02-19",
+      "revenue": 5310489.0
+    },
+    {
+      "date": "2025-02-20",
+      "revenue": 6627549.0
+    },
+    {
+      "date": "2025-02-21",
+      "revenue": 7140026.0
+    },
+    {
+      "date": "2025-02-22",
+      "revenue": 5071165.0
+    },
+    {
+      "date": "2025-02-23",
+      "revenue": 7762884.0
+    },
+    {
+      "date": "2025-02-24",
+      "revenue": 10788068.0
+    },
+    {
+      "date": "2025-02-25",
+      "revenue": 33233191.0
+    },
+    {
+      "date": "2025-02-26",
+      "revenue": 663051.0
+    },
+    {
+      "date": "2025-02-27",
+      "revenue": 317559.0
+    },
+    {
+      "date": "2025-02-28",
+      "revenue": 322163.0
+    },
+    {
+      "date": "2025-03-04",
+      "revenue": 111104.0
+    },
+    {
+      "date": "2025-03-05",
+      "revenue": 1816666.0
+    },
+    {
+      "date": "2025-03-06",
+      "revenue": 5371956.0
+    },
+    {
+      "date": "2025-03-07",
+      "revenue": 4030559.0
+    },
+    {
+      "date": "2025-03-08",
+      "revenue": 4834675.0
+    },
+    {
+      "date": "2025-03-09",
+      "revenue": 7026366.0
+    },
+    {
+      "date": "2025-03-10",
+      "revenue": 10929074.0
+    },
+    {
+      "date": "2025-03-11",
+      "revenue": 12995055.0
+    },
+    {
+      "date": "2025-03-12",
+      "revenue": 6960174.0
+    },
+    {
+      "date": "2025-03-13",
+      "revenue": 6629392.0
+    },
+    {
+      "date": "2025-03-14",
+      "revenue": 8223841.0
+    },
+    {
+      "date": "2025-03-15",
+      "revenue": 7523844.0
+    },
+    {
+      "date": "2025-03-16",
+      "revenue": 11215373.0
+    },
+    {
+      "date": "2025-03-17",
+      "revenue": 13647893.0
+    },
+    {
+      "date": "2025-03-18",
+      "revenue": 18729545.0
+    },
+    {
+      "date": "2025-03-19",
+      "revenue": 165434.0
+    },
+    {
+      "date": "2025-03-20",
+      "revenue": 98169.0
+    },
+    {
+      "date": "2025-03-21",
+      "revenue": 24939.0
+    },
+    {
+      "date": "2025-03-21",
+      "revenue": 14735.0
+    },
+    {
+      "date": "2025-03-21",
+      "revenue": 10375.0
+    },
+    {
+      "date": "2025-03-22",
+      "revenue": 51381.0
+    },
+    {
+      "date": "2025-03-22",
+      "revenue": 24939.0
+    },
+    {
+      "date": "2025-03-22",
+      "revenue": 15415.0
+    },
+    {
+      "date": "2025-03-23",
+      "revenue": 20748.0
+    },
+    {
+      "date": "2025-03-24",
+      "revenue": 20554.0
+    },
+    {
+      "date": "2025-03-26",
+      "revenue": 10277.0
+    },
+    {
+      "date": "2025-03-26",
+      "revenue": 51871.0
+    },
+    {
+      "date": "2025-03-26",
+      "revenue": 10375.0
+    },
+    {
+      "date": "2025-03-26",
+      "revenue": 10277.0
+    },
+    {
+      "date": "2025-03-28",
+      "revenue": 10277.0
+    },
+    {
+      "date": "2025-03-29",
+      "revenue": 10375.0
+    }
+  ],
+  "audit": {
+    "funnelCount": 15,
+    "funnelRevenueSum": 259649608.0,
+    "funnelPaidSum": 9511.0,
+    "funnelCheckoutSum": 12702.0
+  }
+}
