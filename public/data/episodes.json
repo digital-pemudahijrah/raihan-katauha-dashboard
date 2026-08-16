@@ -607,5 +607,34 @@
       "metaRoas": 1.86
     },
     "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1wCZ7ehrO3jgZff7foStnoQBb6mUYTwvNmuQptsf6aSo/edit"
+  },
+  {
+    "episode": 41,
+    "label": "KataUHA 41",
+    "shortLabel": "KU41",
+    "title": "Testing - Judul belum fix",
+    "eventStart": "Tuesday, 29 September 2026",
+    "promoStart": "2026-08-07",
+    "promoDays": 10,
+    "jsonModifiedAt": "2026-08-16T13:02:04.200265Z",
+    "kpi": {
+      "revenue": 3254410.0,
+      "paid": 178,
+      "checkout": 220,
+      "unfinished": 42,
+      "avgInfaq": 18283.0,
+      "checkoutToPaidPct": 80.91,
+      "trackedClicks": 2808,
+      "trackedUniqueClicks": 2510,
+      "adsFunnelRevenue": 2431703.0,
+      "adsSpend": 2803731.0,
+      "adsPpn": 336447.72,
+      "adsSpendWithPpn": 3140178.7199999997,
+      "adsSpendToRevenuePct": 96.49,
+      "roasAdsFunnelWithPpn": 0.77,
+      "metaRevenue": 1937104.0,
+      "metaRoas": 0.69
+    },
+    "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/16EtcwupO5dX37VXO1bZCNNetrVWjpMp2Ywk51UbjNmQ/edit"
   }
 ]

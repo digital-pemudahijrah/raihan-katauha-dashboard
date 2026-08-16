@@ -6,8 +6,8 @@ const fetchJson = async (path) => {
 };
 
 const eps = await fetchJson('/data/episodes.json');
-if (!Array.isArray(eps) || eps.length < 10) throw new Error('Expected episodes 31-40');
-for (const ep of [31, 38, 39, 40]) {
+if (!Array.isArray(eps) || eps.length < 22) throw new Error('Expected episodes 20-41');
+for (const ep of [31, 38, 39, 40, 41]) {
   const data = await fetchJson(`/data/episodes/${ep}.json`);
   if (!data.kpi?.revenue || !data.funnelRows?.length) throw new Error(`Episode ${ep} missing data`);
   if ('jsonPath' in data || JSON.stringify(data).includes('C:/Users') || JSON.stringify(data).includes('C:\\Users')) {
