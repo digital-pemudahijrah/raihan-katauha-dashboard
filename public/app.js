@@ -1,3 +1,5 @@
+import './material-web.bundle.js';
+
 const DATA_BASE = '/data';
 const state = { episodes: [], current: null, query: '', sortBy: 'revenue', cumulativeSelection: new Set(), cumulativeYear: 'all', benchmarkMetric: 'revenue', benchmarkYear: 'all', benchmarkShowAll: false, trendMetric: 'revenue' };
 
@@ -45,6 +47,7 @@ const num = (n) => fmt.format(Math.round(Number(n) || 0));
 const pct = (n) => `${(Number(n) || 0).toFixed(2).replace('.', ',')}%`;
 const x = (n) => `${(Number(n) || 0).toFixed(2).replace('.', ',')}x`;
 const shortDate = (iso) => iso ? new Date(iso).toLocaleDateString('id-ID', { day: '2-digit', month: 'short', year: 'numeric' }) : '-';
+const selectOption = (value, label, selected = false) => `<md-select-option ${selected ? 'selected' : ''} value="${value}"><div slot="headline">${label}</div></md-select-option>`;
 const episodeYear = (ep) => {
   const raw = ep?.eventStart || ep?.jsonModifiedAt || '';
   const match = String(raw).match(/20\d{2}/);
@@ -69,8 +72,8 @@ function selectedCumulativeEpisodes() {
 function renderCumulativeYearFilter() {
   const years = [...new Set(state.episodes.map(episodeYear))].sort();
   els.cumulativeYearFilter.innerHTML = [
-    '<option value="all">Semua Tahun</option>',
-    ...years.map(year => `<option value="${year}">${year}</option>`)
+    selectOption('all', 'Semua Tahun', state.cumulativeYear === 'all'),
+    ...years.map(year => selectOption(year, year, state.cumulativeYear === year))
   ].join('');
   els.cumulativeYearFilter.value = state.cumulativeYear;
 }
@@ -229,8 +232,8 @@ function benchmarkRows() {
 function renderBenchmarkYearFilter() {
   const years = [...new Set(state.episodes.map(episodeYear))].sort();
   els.benchmarkYear.innerHTML = [
-    '<option value="all">Semua Tahun</option>',
-    ...years.map(year => `<option value="${year}">${year}</option>`)
+    selectOption('all', 'Semua Tahun', state.benchmarkYear === 'all'),
+    ...years.map(year => selectOption(year, year, state.benchmarkYear === year))
   ].join('');
   els.benchmarkYear.value = state.benchmarkYear;
 }
@@ -460,13 +463,16 @@ async function loadEpisode(ep) {
 
 async function init() {
   state.episodes = await fetchJson(`${DATA_BASE}/episodes.json`);
-  els.episodeSelect.innerHTML = state.episodes.map(e => `<option value="${e.episode}">${e.label}</option>`).join('');
-  const options = state.episodes.map(e => `<option value="${e.episode}">${e.label}</option>`).join('');
-  els.baseEpisode.innerHTML = options;
-  els.compareEpisode.innerHTML = options;
-  els.baseEpisode.value = state.episodes.at(-2)?.episode || state.episodes[0]?.episode;
-  els.compareEpisode.value = state.episodes.at(-1)?.episode || state.episodes[0]?.episode;
-  els.episodeSelect.value = state.episodes.at(-1)?.episode || 40;
+  const selectedEpisode = state.episodes.at(-1)?.episode || 40;
+  els.episodeSelect.innerHTML = state.episodes.map(e => selectOption(e.episode, e.label, String(e.episode) === String(selectedEpisode))).join('');
+  const baseValue = state.episodes.at(-2)?.episode || state.episodes[0]?.episode;
+  const compareValue = state.episodes.at(-1)?.episode || state.episodes[0]?.episode;
+  const options = (selected) => state.episodes.map(e => selectOption(e.episode, e.label, String(e.episode) === String(selected))).join('');
+  els.baseEpisode.innerHTML = options(baseValue);
+  els.compareEpisode.innerHTML = options(compareValue);
+  els.baseEpisode.value = baseValue;
+  els.compareEpisode.value = compareValue;
+  els.episodeSelect.value = selectedEpisode;
   state.cumulativeSelection = new Set(state.episodes.map(ep => ep.episode));
   renderCumulativeYearFilter();
   renderBenchmarkYearFilter();
@@ -474,7 +480,7 @@ async function init() {
   renderCumulativeSummary();
   renderCompare();
   renderDeltaComparison();
-  await loadEpisode(els.episodeSelect.value);
+  await loadEpisode(selectedEpisode);
 }
 
 els.episodeSelect.addEventListener('change', (e) => loadEpisode(e.target.value));

@@ -7,11 +7,25 @@
   "scripts": {
     "dev": "node api/server.mjs",
     "sync:data": "python scripts/sync-static-data.py",
-    "build": "npm run sync:data",
+    "build:material": "rollup -p @rollup/plugin-node-resolve src/material-web.js -o public/material-web.bundle.js -f es",
+    "build": "npm run sync:data && npm run build:material",
     "verify": "node scripts/verify.mjs",
+    "smoke:material": "node scripts/smoke-material.mjs",
     "validate:sheets": "node scripts/validate-sheets.mjs"
   },
-  "keywords": ["katauha", "dashboard", "reports"],
+  "keywords": [
+    "katauha",
+    "dashboard",
+    "reports"
+  ],
   "author": "Hermes Agent",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@material/web": "^2.5.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.62.4"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
 }

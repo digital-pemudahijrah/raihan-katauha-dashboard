@@ -6,7 +6,7 @@
   <title>Raihan KataUHA Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -34,9 +34,9 @@
     <header class="topbar">
       <div>
         <span class="eyebrow">Internal Report</span>
-        <h1>Raihan KataUHA Dashboard</h1>
-        <p>Dashboard web v1 berbasis JSON existing yang sudah divalidasi dengan spreadsheet acuan.</p>
-        <a class="topbar-cta" href="/simulasi.html">Buka Simulasi Raihan</a>
+        <h1 class="md-typescale-display-medium">Raihan KataUHA Dashboard</h1>
+        <p class="md-typescale-body-medium">Dashboard web v1 berbasis JSON existing yang sudah divalidasi dengan spreadsheet acuan.</p>
+        <md-filled-button href="/simulasi.html">Buka Simulasi Raihan</md-filled-button>
       </div>
     </header>
 
@@ -48,14 +48,11 @@
           <p>Pilih episode yang ingin dijumlahkan, atau gunakan semua episode.</p>
         </div>
         <div class="cumulative-actions">
-          <label class="cumulative-year-filter" for="cumulativeYearFilter">
-            Tahun
-            <select id="cumulativeYearFilter" aria-label="Filter akumulasi berdasarkan tahun">
-              <option value="all">Semua Tahun</option>
-            </select>
-          </label>
-          <button type="button" id="selectAllEpisodes">Pilih Semua</button>
-          <button type="button" id="clearEpisodes">Reset</button>
+          <md-outlined-select id="cumulativeYearFilter" label="Tahun" aria-label="Filter akumulasi berdasarkan tahun">
+            <md-select-option selected value="all"><div slot="headline">Semua Tahun</div></md-select-option>
+          </md-outlined-select>
+          <md-filled-tonal-button type="button" id="selectAllEpisodes">Pilih Semua</md-filled-tonal-button>
+          <md-outlined-button type="button" id="clearEpisodes">Reset</md-outlined-button>
         </div>
       </div>
       <div class="episode-chip-grid" id="cumulativeEpisodeChips" aria-label="Pilih episode untuk akumulasi"></div>
@@ -77,8 +74,7 @@
       </div>
       <div class="hero-side">
         <div class="episode-picker episode-picker-card">
-          <label for="episodeSelect">Pilih Episode</label>
-          <select id="episodeSelect"></select>
+          <md-outlined-select id="episodeSelect" label="Pilih Episode"></md-outlined-select>
         </div>
         <div class="score-card">
           <span>ROAS Ads Funnel</span>
@@ -119,15 +115,15 @@
           <p>Breakdown product/link per episode. Data source: JSON dashboard existing.</p>
         </div>
         <div class="controls">
-          <input id="search" placeholder="Cari product/suffix..." />
-          <select id="sortBy">
-            <option value="revenue">Revenue tertinggi</option>
-            <option value="paid">Paid tertinggi</option>
-            <option value="checkout">Checkout tertinggi</option>
-            <option value="avgInfaq">Avg infaq tertinggi</option>
-            <option value="checkoutToPaidPct">Checkout -> Paid tertinggi</option>
-            <option value="linkClicks">Link clicks tertinggi</option>
-          </select>
+          <md-outlined-text-field id="search" label="Cari funnel" placeholder="Product/suffix/source"></md-outlined-text-field>
+          <md-outlined-select id="sortBy" label="Urutkan">
+            <md-select-option selected value="revenue"><div slot="headline">Revenue tertinggi</div></md-select-option>
+            <md-select-option value="paid"><div slot="headline">Paid tertinggi</div></md-select-option>
+            <md-select-option value="checkout"><div slot="headline">Checkout tertinggi</div></md-select-option>
+            <md-select-option value="avgInfaq"><div slot="headline">Avg infaq tertinggi</div></md-select-option>
+            <md-select-option value="checkoutToPaidPct"><div slot="headline">Checkout -&gt; Paid tertinggi</div></md-select-option>
+            <md-select-option value="linkClicks"><div slot="headline">Link clicks tertinggi</div></md-select-option>
+          </md-outlined-select>
         </div>
       </div>
       <div class="table-wrap">
@@ -157,23 +153,17 @@
           <p>Leaderboard ringkas dengan trend tab Revenue, Peserta Bayar, dan ROAS.</p>
         </div>
         <div class="controls benchmark-controls">
-          <label>
-            Metric
-            <select id="benchmarkMetric" aria-label="Pilih metric benchmark">
-              <option value="revenue">Revenue</option>
-              <option value="paid">Peserta Bayar</option>
-              <option value="checkout">Checkout</option>
-              <option value="checkoutToPaidPct">Checkout -> Paid</option>
-              <option value="roasAdsFunnelWithPpn">ROAS Ads Funnel</option>
-              <option value="adsSpendToRevenuePct">Ads Spend / Revenue</option>
-            </select>
-          </label>
-          <label>
-            Tahun
-            <select id="benchmarkYear" aria-label="Filter benchmark berdasarkan tahun">
-              <option value="all">Semua Tahun</option>
-            </select>
-          </label>
+          <md-outlined-select id="benchmarkMetric" label="Metric" aria-label="Pilih metric benchmark">
+            <md-select-option selected value="revenue"><div slot="headline">Revenue</div></md-select-option>
+            <md-select-option value="paid"><div slot="headline">Peserta Bayar</div></md-select-option>
+            <md-select-option value="checkout"><div slot="headline">Checkout</div></md-select-option>
+            <md-select-option value="checkoutToPaidPct"><div slot="headline">Checkout -&gt; Paid</div></md-select-option>
+            <md-select-option value="roasAdsFunnelWithPpn"><div slot="headline">ROAS Ads Funnel</div></md-select-option>
+            <md-select-option value="adsSpendToRevenuePct"><div slot="headline">Ads Spend / Revenue</div></md-select-option>
+          </md-outlined-select>
+          <md-outlined-select id="benchmarkYear" label="Tahun" aria-label="Filter benchmark berdasarkan tahun">
+            <md-select-option selected value="all"><div slot="headline">Semua Tahun</div></md-select-option>
+          </md-outlined-select>
         </div>
       </div>
       <div class="benchmark-summary" id="benchmarkSummary"></div>
@@ -197,7 +187,7 @@
       </div>
       <div class="benchmark-footer">
         <span id="benchmarkNote">-</span>
-        <button type="button" id="benchmarkToggle">Tampilkan semua</button>
+        <md-filled-tonal-button type="button" id="benchmarkToggle">Tampilkan semua</md-filled-tonal-button>
       </div>
     </section>
 
@@ -208,14 +198,8 @@
           <p>Bandingkan performa satu episode dengan episode lain untuk bahan evaluasi dan presentasi.</p>
         </div>
         <div class="controls comparison-controls">
-          <label>
-            Base
-            <select id="baseEpisode"></select>
-          </label>
-          <label>
-            Compare To
-            <select id="compareEpisode"></select>
-          </label>
+          <md-outlined-select id="baseEpisode" label="Base"></md-outlined-select>
+          <md-outlined-select id="compareEpisode" label="Compare To"></md-outlined-select>
         </div>
       </div>
       <div class="delta-summary" id="deltaSummary"></div>
@@ -229,6 +213,6 @@
     </section>
   </main>
   </div>
-  <script src="/app.js"></script>
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
