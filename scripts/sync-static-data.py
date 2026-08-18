@@ -38,7 +38,7 @@ EPISODES: dict[int, dict[str, Any]] = {
     38: {"label": "KataUHA 38", "shortLabel": "KU38", "title": "Ya Allah, Ini Arahnya Kemana Ya?", "eventStart": "Tuesday, 09 June 2026", "spreadsheetId": "1-Zq2x7eB-ntcgIOCCD-AK0eGK-NoPAfeQxqic2iA4wM", "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1-Zq2x7eB-ntcgIOCCD-AK0eGK-NoPAfeQxqic2iA4wM/edit"},
     39: {"label": "KataUHA 39", "shortLabel": "KU39", "title": "Overthinking: Jodoh, Karir, Takdir", "eventStart": "Tuesday, 14 July 2026", "spreadsheetId": "127eQRE828qVCNbL2k3iRDVaXcfldZ1iSZaAUd47AG8Q", "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/127eQRE828qVCNbL2k3iRDVaXcfldZ1iSZaAUd47AG8Q/edit"},
     40: {"label": "KataUHA 40", "shortLabel": "KU40", "title": "Udah Nggak Kuat, Boleh Nyerah?", "eventStart": "Tuesday, 04 August 2026", "spreadsheetId": "1wCZ7ehrO3jgZff7foStnoQBb6mUYTwvNmuQptsf6aSo", "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1wCZ7ehrO3jgZff7foStnoQBb6mUYTwvNmuQptsf6aSo/edit"},
-    41: {"label": "KataUHA 41", "shortLabel": "KU41", "title": "Testing - Judul belum fix", "eventStart": "Tuesday, 29 September 2026", "spreadsheetId": "16EtcwupO5dX37VXO1bZCNNetrVWjpMp2Ywk51UbjNmQ", "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/16EtcwupO5dX37VXO1bZCNNetrVWjpMp2Ywk51UbjNmQ/edit"},
+    41: {"label": "KataUHA 41", "shortLabel": "KU41", "title": "Dear My Inner Child", "eventStart": "Tuesday, 29 September 2026", "spreadsheetId": "16EtcwupO5dX37VXO1bZCNNetrVWjpMp2Ywk51UbjNmQ", "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/16EtcwupO5dX37VXO1bZCNNetrVWjpMp2Ywk51UbjNmQ/edit"},
 }
 
 
